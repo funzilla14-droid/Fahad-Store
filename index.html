@@ -3,251 +3,996 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Fahad Store — Luxury Fashion Pakistan</title>
-<meta name="description" content="Premium fashion store in Pakistan. Shop women, men, footwear & accessories. Free delivery above Rs. 2,500. COD available."/>
+<title>Fahad Store — Pakistan's Premium Shopping Destination</title>
+<meta name="description" content="Shop fashion, electronics, gadgets, beauty, sports & more. All ages, all seasons. Free delivery above Rs. 2,500. COD available."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
-/* ===== DESIGN TOKENS ===== */
 :root{
-  --ink:#0d0d0d;
-  --ink2:#1a1a1a;
-  --ink3:#262626;
-  --gold:#b8965a;
-  --gold2:#d4b07a;
-  --gold3:#8a6e3e;
-  --cream:#f7f3ee;
-  --cream2:#ede8e0;
-  --smoke:#c8c0b4;
-  --fog:#888077;
-  --border:rgba(184,150,90,0.18);
-  --border2:rgba(255,255,255,0.07);
-  --f-display:'Playfair Display',Georgia,serif;
-  --f-body:'Jost',system-ui,sans-serif;
+  --ink:#0a0a0a;--ink2:#141414;--ink3:#1e1e1e;--ink4:#282828;
+  --gold:#c9a84c;--gold2:#e8c97a;--gold3:#9a7a30;
+  --cream:#f5f0e8;--smoke:#a09880;--fog:#666058;
+  --border:rgba(201,168,76,.15);--border2:rgba(255,255,255,.06);
+  --green:#27ae60;--red:#e74c3c;--blue:#2980b9;
+  --f-d:'Playfair Display',Georgia,serif;
+  --f-b:'Inter',system-ui,sans-serif;
   --ease:cubic-bezier(.4,0,.2,1);
-  --ease-out:cubic-bezier(0,.55,.45,1);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;font-size:16px;}
-body{background:var(--ink);color:var(--cream);font-family:var(--f-body);font-weight:400;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+html{scroll-behavior:smooth;}
+body{background:var(--ink);color:var(--cream);font-family:var(--f-b);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{display:block;max-width:100%;object-fit:cover;}
 a{text-decoration:none;color:inherit;}
 ul{list-style:none;}
-button{cursor:pointer;border:none;background:none;font-family:var(--f-body);}
-input{font-family:var(--f-body);}
+button{cursor:pointer;border:none;background:none;font-family:var(--f-b);}
+input,select{font-family:var(--f-b);}
+.container{max-width:1400px;margin:0 auto;padding:0 24px;}
 
-/* ===== UTILITY ===== */
-.container{max-width:1280px;margin:0 auto;padding:0 32px;}
-.eyebrow{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);}
-.gold-text{color:var(--gold);}
-.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:15px 36px;border-radius:1px;transition:background .25s var(--ease),transform .2s;white-space:nowrap;}
-.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);}
-.btn-outline{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(184,150,90,.5);color:var(--gold);font-size:11px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:14px 32px;border-radius:1px;transition:all .25s var(--ease);}
-.btn-outline:hover{background:rgba(184,150,90,.08);border-color:var(--gold);}
-.divider{width:40px;height:1px;background:var(--gold);display:inline-block;}
+/* TOPBAR */
+.topbar{background:var(--gold);padding:8px 0;text-align:center;}
+.topbar p{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);}
 
-/* ===== ANNOUNCEMENT ===== */
-.topbar{background:var(--gold);padding:9px 24px;text-align:center;}
-.topbar p{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);}
-.topbar a{text-decoration:underline;color:var(--ink);}
+/* NAV */
+.nav{position:sticky;top:0;z-index:500;background:rgba(10,10,10,.98);backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
+.nav-top{display:flex;align-items:center;gap:20px;padding:14px 24px;max-width:1400px;margin:0 auto;}
+.nav-logo{font-family:var(--f-d);font-size:26px;font-weight:600;color:var(--cream);white-space:nowrap;margin-right:8px;}
+.nav-logo span{color:var(--gold);}
+.search-bar{flex:1;display:flex;align-items:center;background:var(--ink3);border:1.5px solid var(--border2);border-radius:6px;overflow:hidden;transition:border-color .2s;}
+.search-bar:focus-within{border-color:var(--gold);}
+.search-input{flex:1;padding:10px 16px;background:none;border:none;color:var(--cream);font-size:14px;outline:none;}
+.search-input::placeholder{color:var(--fog);}
+.search-cat{padding:10px 12px;background:var(--ink4);border-right:1px solid var(--border2);color:var(--smoke);font-size:12px;border:none;cursor:pointer;color:var(--cream);outline:none;}
+.search-btn{padding:10px 18px;background:var(--gold);color:var(--ink);font-size:13px;font-weight:700;border:none;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.search-btn:hover{background:var(--gold2);}
+.nav-actions{display:flex;align-items:center;gap:12px;margin-left:8px;}
+.nav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px 10px;color:var(--smoke);transition:color .2s;white-space:nowrap;}
+.nav-btn:hover{color:var(--gold);}
+.nav-btn svg{width:22px;height:22px;}
+.nav-btn span{font-size:10px;font-weight:500;}
+.cart-nav-btn{position:relative;}
+.cart-badge{position:absolute;top:-2px;right:4px;background:var(--red);color:#fff;font-size:9px;font-weight:700;width:16px;height:16px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
 
-/* ===== NAV ===== */
-.nav{position:sticky;top:0;z-index:200;background:rgba(13,13,13,.97);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border2);}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px;}
-.nav-logo{font-family:var(--f-display);font-size:28px;font-weight:400;letter-spacing:.06em;color:var(--cream);}
-.nav-logo sup{font-size:12px;color:var(--gold);vertical-align:super;margin-left:1px;}
-.nav-links{display:flex;gap:40px;}
-.nav-links a{font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--smoke);transition:color .2s;position:relative;}
-.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s var(--ease);}
-.nav-links a:hover{color:var(--cream);}
-.nav-links a:hover::after{width:100%;}
-.nav-right{display:flex;align-items:center;gap:16px;}
-.nav-search{width:36px;height:36px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--smoke);transition:all .2s;}
-.nav-search:hover{border-color:var(--gold);color:var(--gold);}
-.nav-cart{position:relative;width:36px;height:36px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--smoke);transition:all .2s;}
-.nav-cart:hover{border-color:var(--gold);color:var(--gold);}
-.cart-badge{position:absolute;top:-4px;right:-4px;background:var(--gold);color:var(--ink);font-size:9px;font-weight:700;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
-.hamburger{display:none;flex-direction:column;gap:5px;width:36px;height:36px;align-items:center;justify-content:center;}
-.hamburger span{width:20px;height:1.5px;background:var(--smoke);border-radius:2px;transition:all .3s;}
+/* MEGA NAV */
+.mega-nav{background:var(--ink2);border-bottom:1px solid var(--border2);}
+.mega-nav-inner{display:flex;align-items:center;gap:0;max-width:1400px;margin:0 auto;padding:0 24px;}
+.mega-nav-item{position:relative;}
+.mega-nav-link{display:flex;align-items:center;gap:6px;padding:12px 16px;font-size:12px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:var(--smoke);cursor:pointer;transition:color .2s;white-space:nowrap;border-bottom:2px solid transparent;}
+.mega-nav-link:hover,.mega-nav-link.active{color:var(--gold);border-bottom-color:var(--gold);}
+.mega-nav-link svg{width:14px;height:14px;}
+.mega-dropdown{position:absolute;top:100%;left:0;background:var(--ink2);border:1px solid var(--border2);border-radius:0 0 8px 8px;min-width:220px;padding:16px 0;opacity:0;pointer-events:none;transform:translateY(-8px);transition:all .25s var(--ease);z-index:400;box-shadow:0 20px 60px rgba(0,0,0,.6);}
+.mega-nav-item:hover .mega-dropdown{opacity:1;pointer-events:all;transform:translateY(0);}
+.mega-dropdown a{display:flex;align-items:center;gap:10px;padding:10px 20px;font-size:13px;color:var(--smoke);transition:all .2s;}
+.mega-dropdown a:hover{color:var(--gold);background:rgba(201,168,76,.05);padding-left:26px;}
+.mega-dropdown-title{padding:6px 20px 10px;font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border-bottom:1px solid var(--border2);margin-bottom:4px;}
+.hamburger-nav{display:none;align-items:center;gap:8px;padding:10px 16px;font-size:12px;font-weight:600;color:var(--smoke);cursor:pointer;}
+.hamburger-nav svg{width:18px;height:18px;}
 
-/* ===== HERO ===== */
-.hero{min-height:100vh;display:grid;grid-template-columns:55% 45%;position:relative;overflow:hidden;}
-.hero-left{display:flex;flex-direction:column;justify-content:center;padding:100px 80px 100px 0;position:relative;z-index:1;}
-.hero-tagline{display:flex;align-items:center;gap:16px;margin-bottom:36px;}
-.hero-h1{font-family:var(--f-display);font-size:clamp(54px,6vw,90px);font-weight:400;line-height:1.02;letter-spacing:-.01em;color:var(--cream);margin-bottom:28px;}
+/* HERO BANNER */
+.hero-banner{position:relative;height:480px;overflow:hidden;background:var(--ink2);}
+.hero-slides{display:flex;width:300%;transition:transform .6s var(--ease);}
+.hero-slide{width:33.333%;height:480px;position:relative;flex-shrink:0;}
+.hero-slide img{width:100%;height:100%;object-fit:cover;}
+.hero-slide-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.8) 0%,rgba(0,0,0,.3) 60%,transparent 100%);}
+.hero-slide-content{position:absolute;top:50%;left:8%;transform:translateY(-50%);max-width:500px;}
+.hero-eyebrow{font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+.hero-h1{font-family:var(--f-d);font-size:clamp(36px,4.5vw,62px);font-weight:600;line-height:1.06;color:#fff;margin-bottom:16px;}
 .hero-h1 em{font-style:italic;color:var(--gold);}
-.hero-p{font-size:16px;font-weight:300;color:var(--smoke);max-width:400px;line-height:1.8;margin-bottom:48px;}
-.hero-ctas{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-.hero-right{position:relative;overflow:hidden;}
-.hero-mosaic{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;height:100%;gap:2px;}
-.hero-cell{position:relative;overflow:hidden;background:var(--ink2);}
-.hero-cell img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
-.hero-cell:hover img{transform:scale(1.07);}
-.hero-cell-label{position:absolute;bottom:0;left:0;right:0;padding:20px;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,transparent 100%);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold2);}
-.hero-badge{position:absolute;top:24px;right:24px;z-index:10;width:78px;height:78px;border-radius:50%;background:var(--gold);color:var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:10px;font-weight:700;line-height:1.3;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 8px 32px rgba(184,150,90,.4);}
-.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.5;}
-.hero-scroll span{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--smoke);}
-.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--smoke),transparent);animation:scrollDown 1.8s ease-in-out infinite;}
-@keyframes scrollDown{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+.hero-p{font-size:15px;color:rgba(255,255,255,.75);margin-bottom:28px;line-height:1.7;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:13px 28px;border-radius:4px;transition:background .2s,transform .15s;}
+.btn-primary:hover{background:var(--gold2);transform:translateY(-2px);}
+.btn-sec{display:inline-flex;align-items:center;gap:8px;border:1.5px solid rgba(255,255,255,.4);color:#fff;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:12px 24px;border-radius:4px;transition:all .2s;}
+.btn-sec:hover{border-color:#fff;background:rgba(255,255,255,.1);}
+.hero-dots{position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;gap:8px;}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);cursor:pointer;transition:all .2s;}
+.hero-dot.active{background:var(--gold);width:24px;border-radius:4px;}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);width:42px;height:42px;background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;transition:all .2s;z-index:10;}
+.hero-arrow:hover{background:var(--gold);border-color:var(--gold);color:var(--ink);}
+.hero-arrow.prev{left:20px;}
+.hero-arrow.next{right:20px;}
 
-/* Hero stats */
-.hero-stats{display:flex;gap:0;margin-top:56px;padding-top:40px;border-top:1px solid var(--border2);}
-.hero-stat{flex:1;padding-right:24px;border-right:1px solid var(--border2);}
-.hero-stat:last-child{border-right:none;padding-right:0;padding-left:24px;}
-.hero-stat:not(:first-child):not(:last-child){padding-left:24px;}
-.stat-val{font-family:var(--f-display);font-size:34px;font-weight:400;color:var(--gold);line-height:1;}
-.stat-lbl{font-size:10px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);margin-top:6px;}
+/* QUICK CATS */
+.quick-cats{padding:28px 0;background:var(--ink2);border-bottom:1px solid var(--border2);}
+.quick-cats-grid{display:flex;gap:12px;overflow-x:auto;padding-bottom:4px;-webkit-overflow-scrolling:touch;scrollbar-width:none;}
+.quick-cats-grid::-webkit-scrollbar{display:none;}
+.qcat{display:flex;flex-direction:column;align-items:center;gap:8px;cursor:pointer;flex-shrink:0;width:80px;transition:transform .2s;}
+.qcat:hover{transform:translateY(-3px);}
+.qcat-icon{width:60px;height:60px;border-radius:50%;background:var(--ink3);border:2px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:26px;transition:border-color .2s;}
+.qcat:hover .qcat-icon{border-color:var(--gold);}
+.qcat-label{font-size:10px;font-weight:500;color:var(--smoke);text-align:center;letter-spacing:.04em;}
 
-/* ===== TICKER ===== */
-.ticker{background:var(--gold);overflow:hidden;padding:11px 0;}
-.ticker-track{display:flex;animation:ticker 22s linear infinite;white-space:nowrap;}
-.ticker-item{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--ink);padding:0 48px;}
-.ticker-dot{color:rgba(0,0,0,.35);margin-left:48px;}
-@keyframes ticker{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+/* SEASON BANNER */
+.season-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:3px;margin:0;}
+.season-card{position:relative;height:140px;overflow:hidden;cursor:pointer;}
+.season-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+.season-card:hover img{transform:scale(1.06);}
+.season-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7),rgba(0,0,0,.1));}
+.season-label{position:absolute;bottom:16px;left:16px;}
+.season-title{font-family:var(--f-d);font-size:20px;font-weight:600;color:#fff;line-height:1;}
+.season-sub{font-size:10px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-top:4px;}
 
-/* ===== SECTION COMMONS ===== */
-.section{padding:112px 0;}
-.section-head{margin-bottom:56px;}
-.section-head.center{text-align:center;}
-.section-title{font-family:var(--f-display);font-size:clamp(36px,4vw,56px);font-weight:400;line-height:1.08;color:var(--cream);margin-top:14px;}
-.section-title em{font-style:italic;color:var(--gold);}
-.section-row{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:56px;}
+/* SECTION */
+.section{padding:56px 0;}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px;}
+.sec-title{font-family:var(--f-d);font-size:clamp(24px,3vw,36px);font-weight:600;color:var(--cream);}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-eyebrow{font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+.view-all{font-size:12px;font-weight:600;color:var(--gold);display:flex;align-items:center;gap:4px;transition:gap .2s;}
+.view-all:hover{gap:8px;}
 
-/* ===== BRANDS ===== */
-.brands{padding:56px 0;border-bottom:1px solid var(--border2);}
-.brands-label{text-align:center;margin-bottom:32px;}
-.brands-grid{display:flex;align-items:center;justify-content:center;gap:56px;flex-wrap:wrap;}
-.brand-name{font-family:var(--f-display);font-size:18px;font-weight:400;color:var(--fog);letter-spacing:.08em;transition:color .2s;}
-.brand-name:hover{color:var(--gold);}
+/* AGE TABS */
+.age-tabs{display:flex;gap:6px;margin-bottom:28px;flex-wrap:wrap;}
+.age-tab{padding:8px 18px;border-radius:20px;font-size:12px;font-weight:600;background:var(--ink3);border:1.5px solid var(--border2);color:var(--smoke);cursor:pointer;transition:all .2s;}
+.age-tab.active,.age-tab:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
 
-/* ===== CATEGORIES ===== */
-.cat-section{background:var(--ink2);}
-.cat-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:420px 300px;gap:3px;}
-.cat-card{position:relative;overflow:hidden;cursor:pointer;background:var(--ink3);}
-.cat-card.tall{grid-row:span 2;}
-.cat-card.wide{grid-column:span 2;}
-.cat-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease);}
-.cat-card:hover .cat-img{transform:scale(1.06);}
-.cat-veil{position:absolute;inset:0;background:linear-gradient(160deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.6) 100%);transition:background .4s;}
-.cat-card:hover .cat-veil{background:linear-gradient(160deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.75) 100%);}
-.cat-body{position:absolute;bottom:0;left:0;right:0;padding:32px;transform:translateY(8px);transition:transform .4s var(--ease);}
-.cat-card:hover .cat-body{transform:translateY(0);}
-.cat-eyebrow{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold2);margin-bottom:8px;}
-.cat-name{font-family:var(--f-display);font-size:28px;font-weight:400;color:var(--cream);line-height:1.1;margin-bottom:10px;}
-.cat-count{font-size:11px;color:var(--smoke);letter-spacing:.1em;}
-.cat-btn{display:inline-flex;align-items:center;gap:8px;margin-top:16px;font-size:10px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:0;transform:translateY(8px);transition:all .35s var(--ease);}
-.cat-card:hover .cat-btn{opacity:1;transform:translateY(0);}
-.cat-arrow{width:28px;height:28px;border:1px solid rgba(184,150,90,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:background .2s;}
-.cat-card:hover .cat-arrow{background:rgba(184,150,90,.15);}
+/* PRODUCTS GRID */
+.prod-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;}
+.prod-card{background:var(--ink2);border:1px solid var(--border2);border-radius:8px;overflow:hidden;transition:transform .3s var(--ease),box-shadow .3s,border-color .3s;}
+.prod-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.5);border-color:var(--border);}
+.prod-img{aspect-ratio:1;position:relative;overflow:hidden;background:var(--ink3);}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);}
+.prod-card:hover .prod-img img{transform:scale(1.06);}
+.prod-badge{position:absolute;top:8px;left:8px;font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:3px;}
+.b-new{background:var(--gold);color:var(--ink);}
+.b-sale{background:var(--red);color:#fff;}
+.b-hot{background:#e67e22;color:#fff;}
+.b-limited{background:var(--blue);color:#fff;}
+.b-season{background:#8e44ad;color:#fff;}
+.prod-wish{position:absolute;top:8px;right:8px;width:30px;height:30px;background:rgba(10,10,10,.7);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--smoke);font-size:14px;cursor:pointer;transition:all .2s;opacity:0;}
+.prod-card:hover .prod-wish{opacity:1;}
+.prod-wish:hover{background:var(--red);color:#fff;}
+.prod-quick{position:absolute;bottom:-40px;left:0;right:0;background:rgba(0,0,0,.85);padding:10px;display:flex;gap:6px;transition:bottom .3s var(--ease);}
+.prod-card:hover .prod-quick{bottom:0;}
+.btn-addcart{flex:1;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:9px;border-radius:3px;cursor:pointer;border:none;transition:background .2s;}
+.btn-addcart:hover{background:var(--gold2);}
+.btn-wa-p{background:#25D366;color:#fff;width:36px;border-radius:3px;display:flex;align-items:center;justify-content:center;cursor:pointer;border:none;transition:background .2s;flex-shrink:0;}
+.btn-wa-p:hover{background:#1da851;}
+.btn-wa-p svg{width:15px;height:15px;fill:#fff;}
+.prod-info{padding:12px;}
+.prod-brand{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.prod-name{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:8px;line-height:1.3;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.prod-prices{display:flex;align-items:center;gap:8px;margin-bottom:6px;}
+.prod-price{font-size:14px;font-weight:700;color:var(--gold);}
+.prod-old{font-size:11px;color:var(--fog);text-decoration:line-through;}
+.prod-disc{font-size:10px;font-weight:700;color:var(--red);}
+.prod-rating{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--fog);}
+.prod-rating svg{width:10px;height:10px;fill:var(--gold);}
+.prod-delivery{font-size:10px;color:var(--green);margin-top:4px;font-weight:500;}
 
-/* ===== PRODUCTS ===== */
-.products-section{background:var(--ink);}
-.filter-tabs{display:flex;gap:4px;margin-bottom:48px;border-bottom:1px solid var(--border2);padding-bottom:0;}
-.filter-tab{font-size:11px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--fog);padding:12px 24px;border-bottom:2px solid transparent;transition:all .2s;cursor:pointer;margin-bottom:-1px;}
-.filter-tab.active{color:var(--gold);border-bottom-color:var(--gold);}
-.filter-tab:hover{color:var(--cream);}
-.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
-.prod-card{background:var(--ink2);border:1px solid var(--border2);border-radius:2px;overflow:hidden;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;}
-.prod-card:hover{transform:translateY(-8px);box-shadow:0 32px 64px rgba(0,0,0,.6);border-color:var(--border);}
-.prod-img-wrap{aspect-ratio:3/4;position:relative;overflow:hidden;background:var(--ink3);}
-.prod-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease);}
-.prod-card:hover .prod-img-wrap img{transform:scale(1.06);}
-.prod-badge{position:absolute;top:12px;left:12px;font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:4px 10px;border-radius:1px;}
-.badge-new{background:var(--gold);color:var(--ink);}
-.badge-sale{background:#c0392b;color:#fff;}
-.badge-hot{background:var(--ink);color:var(--gold);border:1px solid var(--gold);}
-.prod-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);opacity:0;transition:opacity .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:16px;gap:8px;}
-.prod-card:hover .prod-overlay{opacity:1;}
-.btn-add{width:100%;background:var(--gold);color:var(--ink);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:13px;border-radius:1px;transition:background .2s;cursor:pointer;border:none;}
-.btn-add:hover{background:var(--gold2);}
-.btn-wa-prod{width:100%;background:#25D366;color:#fff;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:11px;border-radius:1px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .2s;}
-.btn-wa-prod:hover{background:#1da851;}
-.prod-info{padding:18px 16px 16px;}
-.prod-cat{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
-.prod-name{font-family:var(--f-display);font-size:17px;font-weight:400;color:var(--cream);line-height:1.25;margin-bottom:12px;}
-.prod-price-row{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
-.prod-price{font-size:16px;font-weight:600;color:var(--gold);}
-.prod-price-old{font-size:13px;color:var(--fog);text-decoration:line-through;}
-.prod-stars{display:flex;align-items:center;gap:4px;}
-.prod-stars svg{width:11px;height:11px;fill:var(--gold);}
-.prod-stars span{font-size:11px;color:var(--fog);margin-left:4px;}
-.prod-origin{font-size:10px;color:var(--fog);margin-top:6px;letter-spacing:.06em;}
+/* BANNER STRIPS */
+.promo-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:0;}
+.promo-card{position:relative;height:180px;border-radius:8px;overflow:hidden;cursor:pointer;}
+.promo-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s;}
+.promo-card:hover img{transform:scale(1.04);}
+.promo-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(0,0,0,.75) 0%,transparent 70%);}
+.promo-content{position:absolute;top:50%;left:24px;transform:translateY(-50%);}
+.promo-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.promo-title{font-family:var(--f-d);font-size:22px;font-weight:600;color:#fff;line-height:1.2;margin-bottom:10px;}
+.promo-btn{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:4px;}
 
-/* ===== FEATURES ===== */
-.features-section{background:var(--ink2);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:80px 0;}
-.features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border2);}
-.feature-box{background:var(--ink2);padding:40px 32px;text-align:center;}
-.feature-icon{width:48px;height:48px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px;}
-.feature-icon svg{width:20px;height:20px;stroke:var(--gold);fill:none;}
-.feature-title{font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--cream);margin-bottom:8px;}
-.feature-desc{font-size:13px;color:var(--fog);line-height:1.65;}
+/* FEATURES */
+.features-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--border2);border-radius:8px;overflow:hidden;}
+.feat-box{padding:24px 16px;text-align:center;background:var(--ink2);border-right:1px solid var(--border2);}
+.feat-box:last-child{border-right:none;}
+.feat-icon{font-size:28px;margin-bottom:10px;}
+.feat-title{font-size:12px;font-weight:700;color:var(--cream);margin-bottom:4px;}
+.feat-desc{font-size:11px;color:var(--fog);line-height:1.5;}
 
-/* ===== SALE BANNER ===== */
-.sale-section{background:var(--ink);padding:120px 0;position:relative;overflow:hidden;text-align:center;}
-.sale-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 70% at 50% 50%,rgba(184,150,90,.07) 0%,transparent 70%);}
-.sale-inner{position:relative;z-index:1;}
-.sale-h2{font-family:var(--f-display);font-size:clamp(44px,6vw,80px);font-weight:400;line-height:1.06;margin:16px 0 20px;}
-.sale-h2 em{font-style:italic;color:var(--gold);}
-.sale-sub{font-size:16px;font-weight:300;color:var(--smoke);max-width:480px;margin:0 auto 44px;line-height:1.75;}
-.countdown{display:flex;align-items:center;justify-content:center;gap:6px;margin-bottom:44px;}
-.cd-unit{background:var(--ink2);border:1px solid var(--border2);border-radius:2px;padding:16px 22px;text-align:center;min-width:76px;}
-.cd-num{font-family:var(--f-display);font-size:40px;font-weight:400;color:var(--gold);line-height:1;}
-.cd-label{font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);margin-top:5px;}
-.cd-colon{font-family:var(--f-display);font-size:36px;color:var(--border);padding-bottom:14px;}
-
-/* ===== TESTIMONIALS ===== */
-.testi-section{background:var(--ink2);}
-.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:56px;}
-.testi-card{background:var(--ink);border:1px solid var(--border2);border-radius:2px;padding:36px;transition:border-color .3s;}
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+.testi-card{background:var(--ink2);border:1px solid var(--border2);border-radius:8px;padding:24px;transition:border-color .3s;}
 .testi-card:hover{border-color:var(--border);}
-.testi-quote{font-size:32px;font-family:var(--f-display);color:var(--gold);opacity:.4;line-height:1;margin-bottom:16px;}
-.testi-text{font-family:var(--f-display);font-size:17px;font-weight:400;font-style:italic;color:var(--cream);line-height:1.7;margin-bottom:28px;}
-.testi-author{display:flex;align-items:center;gap:14px;}
-.testi-av{width:44px;height:44px;border-radius:50%;overflow:hidden;border:1px solid var(--border);flex-shrink:0;}
-.testi-av img{width:100%;height:100%;object-fit:cover;}
+.testi-stars{color:var(--gold);font-size:13px;letter-spacing:2px;margin-bottom:12px;}
+.testi-text{font-size:13px;color:var(--smoke);line-height:1.7;margin-bottom:16px;font-style:italic;}
 .testi-name{font-size:13px;font-weight:600;color:var(--cream);}
-.testi-loc{font-size:11px;color:var(--fog);margin-top:2px;}
-.testi-stars{display:flex;gap:2px;margin-bottom:20px;}
-.testi-stars svg{width:13px;height:13px;fill:var(--gold);}
+.testi-loc{font-size:11px;color:var(--fog);}
+.testi-product{font-size:10px;color:var(--gold);margin-top:4px;}
 
-/* ===== NEWSLETTER ===== */
-.nl-section{background:var(--gold);padding:88px 0;text-align:center;}
-.nl-eyebrow{color:rgba(0,0,0,.55);margin-bottom:12px;}
-.nl-h2{font-family:var(--f-display);font-size:clamp(32px,4vw,52px);font-weight:400;color:var(--ink);margin-bottom:16px;}
-.nl-p{font-size:15px;color:rgba(0,0,0,.58);margin-bottom:36px;}
-.nl-form{display:flex;max-width:440px;margin:0 auto;}
-.nl-input{flex:1;padding:15px 20px;font-size:14px;font-family:var(--f-body);background:rgba(0,0,0,.1);border:none;color:var(--ink);border-radius:1px 0 0 1px;outline:none;}
-.nl-input::placeholder{color:rgba(0,0,0,.4);}
-.nl-btn{background:var(--ink);color:var(--gold);font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:15px 28px;border-radius:0 1px 1px 0;cursor:pointer;border:none;transition:background .2s;}
-.nl-btn:hover{background:var(--ink2);}
+/* NEWSLETTER */
+.nl-section{background:linear-gradient(135deg,var(--ink2) 0%,var(--ink3) 100%);border-top:1px solid var(--border2);border-bottom:1px solid var(--border2);padding:56px 0;text-align:center;}
+.nl-title{font-family:var(--f-d);font-size:clamp(28px,3.5vw,44px);font-weight:600;margin:10px 0 12px;}
+.nl-title em{font-style:italic;color:var(--gold);}
+.nl-p{font-size:14px;color:var(--smoke);margin-bottom:28px;}
+.nl-form{display:flex;max-width:460px;margin:0 auto;gap:0;}
+.nl-inp{flex:1;padding:14px 18px;background:var(--ink3);border:1.5px solid var(--border2);border-right:none;color:var(--cream);font-size:14px;border-radius:4px 0 0 4px;outline:none;transition:border-color .2s;}
+.nl-inp:focus{border-color:var(--gold);}
+.nl-inp::placeholder{color:var(--fog);}
+.nl-sub{background:var(--gold);color:var(--ink);font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:14px 24px;border-radius:0 4px 4px 0;cursor:pointer;border:none;transition:background .2s;}
+.nl-sub:hover{background:var(--gold2);}
 
-/* ===== FOOTER ===== */
-footer{background:var(--ink);border-top:1px solid var(--border2);padding:80px 0 0;}
-.footer-grid{display:grid;grid-template-columns:2.2fr 1fr 1fr 1fr;gap:60px;padding-bottom:60px;border-bottom:1px solid var(--border2);}
-.footer-brand{font-family:var(--f-display);font-size:26px;font-weight:400;letter-spacing:.06em;margin-bottom:16px;}
-.footer-brand sup{font-size:11px;color:var(--gold);vertical-align:super;}
-.footer-desc{font-size:13px;font-weight:300;color:var(--fog);line-height:1.75;max-width:240px;margin-bottom:28px;}
-.footer-socials{display:flex;gap:10px;}
-.soc-btn{width:34px;height:34px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;}
-.soc-btn:hover{border-color:var(--gold);background:rgba(184,150,90,.08);}
-.soc-btn svg{width:14px;height:14px;fill:var(--fog);transition:fill .2s;}
-.soc-btn:hover svg{fill:var(--gold);}
-.footer-col-title{font-size:10px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;}
-.footer-links{display:flex;flex-direction:column;gap:12px;}
-.footer-links a{font-size:13px;color:var(--fog);transition:color .2s;}
-.footer-links a:hover{color:var(--cream);}
-.footer-bottom{padding:22px 0;display:flex;align-items:center;justify-content:space-between;}
-.footer-copy{font-size:12px;color:var(--fog);}
-.footer-copy span{color:var(--gold);}
-.pay-badges{display:flex;gap:8px;}
-.pay-badge{background:var(--ink2);border:1px solid var(--border2);padding:5px 12px;border-radius:2px;font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--fog);}
+/* FOOTER */
+footer{background:var(--ink2);border-top:1px solid var(--border2);padding:64px 0 0;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:48px;padding-bottom:48px;border-bottom:1px solid var(--border2);}
+.f-logo{font-family:var(--f-d);font-size:24px;font-weight:600;margin-bottom:14px;}
+.f-logo span{color:var(--gold);}
+.f-desc{font-size:13px;color:var(--fog);line-height:1.75;margin-bottom:22px;max-width:220px;}
+.f-socials{display:flex;gap:8px;}
+.f-soc{width:32px;height:32px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.f-soc:hover{border-color:var(--gold);background:rgba(201,168,76,.08);}
+.f-soc svg{width:14px;height:14px;fill:var(--fog);transition:fill .2s;}
+.f-soc:hover svg{fill:var(--gold);}
+.f-col-title{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;}
+.f-links{display:flex;flex-direction:column;gap:10px;}
+.f-links a{font-size:13px;color:var(--fog);transition:color .2s;}
+.f-links a:hover{color:var(--cream);}
+.footer-bottom{padding:20px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.f-copy{font-size:12px;color:var(--fog);}
+.f-copy span{color:var(--gold);}
+.f-pays{display:flex;gap:6px;}
+.f-pay{background:var(--ink3);border:1px solid var(--border2);padding:4px 10px;border-radius:3px;font-size:10px;font-weight:600;color:var(--fog);}
 
-/* ===== CART ===== */
-.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:400;opacity:0;pointer-events:none;transition:opacity .3s;}
+/* CART SIDEBAR */
+.cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.75);z-index:600;opacity:0;pointer-events:none;transition:opacity .3s;}
 .cart-overlay.open{opacity:1;pointer-events:all;}
-.cart-panel{position:fixed;top:0;right:0;width:420px;height:100dvh;background:var(--ink2);border-left:1px solid var(--border2);z-index:401;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease);}
+.cart-panel{position:fixed;top:0;right:0;width:420px;height:100dvh;background:var(--ink2);border-left:1px solid var(--border2);z-index:601;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease);}
 .cart-panel.open{transform:translateX(0);}
-.cart-hd{display:flex;align-items:center;justify-content:space-between;padding:24px;border-bottom:1px solid var(--border2);}
-.cart-hd-title{font-family:var(--f-display);font-size:22px;font-weight:400;}
-.cart-close-btn{width:34px;height:34px;border:1px solid var(--border2);border-radius:50%;display:flex;align-i
+.cart-hd{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border2);}
+.cart-hd-title{font-family:var(--f-d);font-size:20px;font-weight:600;}
+.cart-cls{width:32px;height:32px;border:1px solid var(--border2);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--fog);cursor:pointer;font-size:16px;transition:all .2s;}
+.cart-cls:hover{border-color:var(--gold);color:var(--gold);}
+.cart-body{flex:1;overflow-y:auto;padding:20px 24px;}
+.cart-empty{text-align:center;padding:60px 0;color:var(--fog);}
+.cart-empty svg{width:48px;height:48px;stroke:var(--fog);fill:none;margin:0 auto 14px;}
+.cart-item{display:flex;gap:12px;padding:14px 0;border-bottom:1px solid var(--border2);}
+.ci-img{width:70px;height:70px;border-radius:6px;overflow:hidden;flex-shrink:0;background:var(--ink3);}
+.ci-img img{width:100%;height:100%;object-fit:cover;}
+.ci-info{flex:1;min-width:0;}
+.ci-name{font-size:13px;font-weight:500;color:var(--cream);margin-bottom:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ci-price{font-size:13px;font-weight:700;color:var(--gold);}
+.ci-qty{font-size:11px;color:var(--fog);margin-top:3px;}
+.ci-rm{color:var(--fog);font-size:14px;cursor:pointer;transition:color .2s;border:none;background:none;align-self:flex-start;padding:2px;}
+.ci-rm:hover{color:var(--red);}
+.cart-ft{padding:20px 24px;border-top:1px solid var(--border2);}
+.cart-totals{margin-bottom:16px;}
+.cart-row{display:flex;justify-content:space-between;font-size:13px;margin-bottom:6px;}
+.cart-row.total{font-size:16px;font-weight:700;color:var(--gold);padding-top:10px;border-top:1px solid var(--border2);margin-top:10px;}
+.btn-wa-out{width:100%;background:#25D366;color:#fff;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:15px;border-radius:4px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:8px;transition:background .2s;}
+.btn-wa-out:hover{background:#1da851;}
+.btn-wa-out svg{width:16px;height:16px;fill:#fff;}
+.btn-continue{width:100%;border:1.5px solid var(--border2);color:var(--smoke);font-size:12px;font-weight:600;padding:13px;border-radius:4px;cursor:pointer;transition:all .2s;}
+.btn-continue:hover{border-color:var(--gold);color:var(--gold);}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:400;width:52px;height:52px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+.wa-float svg{width:26px;height:26px;fill:#fff;}
+
+/* MOBILE */
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--ink);z-index:700;overflow-y:auto;padding:70px 24px 40px;}
+.mobile-menu.open{display:block;}
+.mob-close{position:fixed;top:16px;right:20px;font-size:24px;color:var(--smoke);cursor:pointer;z-index:701;}
+.mob-search{display:flex;background:var(--ink3);border:1.5px solid var(--border2);border-radius:6px;overflow:hidden;margin-bottom:24px;}
+.mob-search input{flex:1;padding:12px 16px;background:none;border:none;color:var(--cream);font-size:14px;outline:none;}
+.mob-search button{padding:12px 16px;background:var(--gold);border:none;cursor:pointer;}
+.mob-search button svg{width:16px;height:16px;stroke:var(--ink);fill:none;}
+.mob-cat-title{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);padding:8px 0;border-bottom:1px solid var(--border2);margin-bottom:8px;}
+.mob-link{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--border2);color:var(--smoke);font-size:14px;font-weight:500;cursor:pointer;transition:color .2s;}
+.mob-link:hover{color:var(--gold);}
+.mob-link svg{width:18px;height:18px;}
+
+@media(max-width:1200px){.prod-grid{grid-template-columns:repeat(4,1fr);}.footer-grid{grid-template-columns:1fr 1fr 1fr;gap:32px;}.features-row{grid-template-columns:repeat(3,1fr);}}
+@media(max-width:900px){.prod-grid{grid-template-columns:repeat(3,1fr);}.mega-nav{display:none;}.hamburger-nav{display:flex;}.testi-grid{grid-template-columns:repeat(2,1fr);}.season-strip{grid-template-columns:repeat(2,1fr);}.footer-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:640px){
+  .prod-grid{grid-template-columns:repeat(2,1fr);gap:10px;}
+  .nav-top{flex-wrap:wrap;padding:10px 16px;gap:10px;}
+  .search-bar{order:3;flex:0 0 100%;}
+  .nav-logo{font-size:22px;}
+  .promo-grid{grid-template-columns:1fr;}
+  .features-row{grid-template-columns:repeat(2,1fr);}
+  .testi-grid{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .nl-form{flex-direction:column;}
+  .nl-inp,.nl-sub{border-radius:4px;width:100%;}
+  .cart-panel{width:100%;}
+  .season-strip{grid-template-columns:repeat(2,1fr);}
+  .container{padding:0 16px;}
+  .hero-banner{height:320px;}
+  .hero-h1{font-size:28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- WA Float -->
+<a href="https://wa.me/923374014086" target="_blank" class="wa-float" aria-label="WhatsApp Order">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.837L.057 23.571a.75.75 0 0 0 .921.921l5.734-1.471A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.95-1.355l-.355-.211-3.674.942.962-3.564-.232-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+</a>
+
+<!-- Top Bar -->
+<div class="topbar"><p>Free Shipping Above Rs. 2,500 &nbsp;|&nbsp; COD Available &nbsp;|&nbsp; 0337-4014086 &nbsp;|&nbsp; Mon-Sat 9am-8pm</p></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-top">
+    <a href="#" class="nav-logo">Fahad<span>Store</span></a>
+    <div class="search-bar">
+      <select class="search-cat" id="search-cat">
+        <option>All</option><option>Fashion</option><option>Electronics</option><option>Gadgets</option><option>Beauty</option><option>Baby</option><option>Sports</option>
+      </select>
+      <input type="text" class="search-input" id="search-input" placeholder="Search products, brands, categories..."/>
+      <button class="search-btn" onclick="doSearch()">Search</button>
+    </div>
+    <div class="nav-actions">
+      <button class="hamburger-nav" onclick="toggleMobile()" style="display:none;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+        Menu
+      </button>
+      <a href="https://wa.me/923374014086" target="_blank" class="nav-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.837L.057 23.571a.75.75 0 0 0 .921.921l5.734-1.471A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.95-1.355l-.355-.211-3.674.942.962-3.564-.232-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+        <span>WhatsApp</span>
+      </a>
+      <button class="nav-btn cart-nav-btn" onclick="toggleCart()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg>
+        <span>Cart</span>
+        <span class="cart-badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </div>
+  <!-- Mega Nav -->
+  <div class="mega-nav">
+    <div class="mega-nav-inner">
+      <div class="mega-nav-item">
+        <div class="mega-nav-link active" onclick="filterCat('all')">All Products</div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('fashion')">Fashion <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="mega-dropdown">
+          <div class="mega-dropdown-title">Fashion</div>
+          <a href="#" onclick="filterCat('women')">Women's Clothing</a>
+          <a href="#" onclick="filterCat('men')">Men's Clothing</a>
+          <a href="#" onclick="filterCat('kids')">Kids' Fashion</a>
+          <a href="#" onclick="filterCat('baby')">Baby Clothes</a>
+          <a href="#" onclick="filterCat('teen')">Teen Fashion</a>
+        </div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('electronics')">Electronics <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="mega-dropdown">
+          <div class="mega-dropdown-title">Electronics</div>
+          <a href="#" onclick="filterCat('phones')">Mobile Phones</a>
+          <a href="#" onclick="filterCat('laptops')">Laptops & PCs</a>
+          <a href="#" onclick="filterCat('accessories-e')">Phone Accessories</a>
+          <a href="#" onclick="filterCat('audio')">Audio & Headphones</a>
+        </div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('gadgets')">Gadgets <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="mega-dropdown">
+          <div class="mega-dropdown-title">Gadgets</div>
+          <a href="#" onclick="filterCat('smartwatch')">Smart Watches</a>
+          <a href="#" onclick="filterCat('gadgets')">Tech Gadgets</a>
+          <a href="#" onclick="filterCat('camera')">Cameras</a>
+        </div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('beauty')">Beauty <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></div>
+        <div class="mega-dropdown">
+          <div class="mega-dropdown-title">Beauty & Care</div>
+          <a href="#" onclick="filterCat('skincare')">Skincare</a>
+          <a href="#" onclick="filterCat('haircare')">Hair Care</a>
+          <a href="#" onclick="filterCat('perfume')">Perfumes</a>
+          <a href="#" onclick="filterCat('makeup')">Makeup</a>
+        </div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('sports')">Sports</div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('home')">Home & Kitchen</div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" onclick="filterCat('baby')">Baby & Kids</div>
+      </div>
+      <div class="mega-nav-item">
+        <div class="mega-nav-link" style="color:var(--red);border-bottom-color:var(--red);" onclick="filterCat('sale')">Sale 🔥</div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobile-menu">
+  <button class="mob-close" onclick="toggleMobile()">&#10005;</button>
+  <div class="mob-search">
+    <input type="text" id="mob-search-inp" placeholder="Search products..."/>
+    <button onclick="doMobSearch()"><svg viewBox="0 0 24 24" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></button>
+  </div>
+  <div class="mob-cat-title">Categories</div>
+  <div class="mob-link" onclick="filterCat('all');toggleMobile()">All Products</div>
+  <div class="mob-link" onclick="filterCat('women');toggleMobile()">Women's Fashion</div>
+  <div class="mob-link" onclick="filterCat('men');toggleMobile()">Men's Fashion</div>
+  <div class="mob-link" onclick="filterCat('kids');toggleMobile()">Kids & Baby</div>
+  <div class="mob-link" onclick="filterCat('electronics');toggleMobile()">Electronics</div>
+  <div class="mob-link" onclick="filterCat('gadgets');toggleMobile()">Gadgets</div>
+  <div class="mob-link" onclick="filterCat('beauty');toggleMobile()">Beauty & Care</div>
+  <div class="mob-link" onclick="filterCat('sports');toggleMobile()">Sports</div>
+  <div class="mob-link" onclick="filterCat('home');toggleMobile()">Home & Kitchen</div>
+  <div class="mob-link" onclick="filterCat('sale');toggleMobile()" style="color:var(--red);">Sale Items 🔥</div>
+  <div class="mob-cat-title" style="margin-top:16px;">Contact</div>
+  <a href="https://wa.me/923374014086" target="_blank" class="mob-link">WhatsApp: 0337-4014086</a>
+</div>
+
+<!-- Hero Slider -->
+<div class="hero-banner" id="hero">
+  <div class="hero-slides" id="hero-slides">
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1400&q=85" alt="Summer Sale"/>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-eyebrow">Summer 2025 Collection</div>
+        <h1 class="hero-h1">Fashion That<br><em>Defines You</em></h1>
+        <p class="hero-p">Premium clothing for every age — baby to elderly. Up to 40% off this season.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn-primary" onclick="filterCat('fashion')">Shop Fashion</a>
+          <a href="https://wa.me/923374014086" target="_blank" class="btn-sec">WhatsApp Order</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=1400&q=85" alt="Electronics"/>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-eyebrow">Tech & Gadgets</div>
+        <h1 class="hero-h1">Latest <em>Tech</em><br>At Best Prices</h1>
+        <p class="hero-p">Phones, laptops, smart watches & gadgets. Authentic products, fast delivery.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn-primary" onclick="filterCat('electronics')">Shop Electronics</a>
+          <a href="#products" class="btn-sec" onclick="filterCat('gadgets')">View Gadgets</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-slide">
+      <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1400&q=85" alt="Sale"/>
+      <div class="hero-slide-overlay"></div>
+      <div class="hero-slide-content">
+        <div class="hero-eyebrow">Mega Sale — Limited Time</div>
+        <h1 class="hero-h1">Up to <em>50% Off</em><br>Everything</h1>
+        <p class="hero-p">All categories on sale. Beauty, Sports, Home, Fashion — huge discounts now.</p>
+        <div class="hero-btns">
+          <a href="#products" class="btn-primary" onclick="filterCat('sale')">Shop Sale</a>
+          <a href="https://wa.me/923374014086?text=Assalam%20o%20Alaikum!%20Sale%20items%20dekhna%20chahta%20hoon." target="_blank" class="btn-sec">Ask on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="hero-arrow prev" onclick="slideHero(-1)">&#8249;</button>
+  <button class="hero-arrow next" onclick="slideHero(1)">&#8250;</button>
+  <div class="hero-dots">
+    <div class="hero-dot active" onclick="goSlide(0)"></div>
+    <div class="hero-dot" onclick="goSlide(1)"></div>
+    <div class="hero-dot" onclick="goSlide(2)"></div>
+  </div>
+</div>
+
+<!-- Quick Categories -->
+<div class="quick-cats">
+  <div class="container">
+    <div class="quick-cats-grid">
+      <div class="qcat" onclick="filterCat('all')"><div class="qcat-icon">🛍️</div><div class="qcat-label">All</div></div>
+      <div class="qcat" onclick="filterCat('women')"><div class="qcat-icon">👗</div><div class="qcat-label">Women</div></div>
+      <div class="qcat" onclick="filterCat('men')"><div class="qcat-icon">👔</div><div class="qcat-label">Men</div></div>
+      <div class="qcat" onclick="filterCat('baby')"><div class="qcat-icon">🍼</div><div class="qcat-label">Baby</div></div>
+      <div class="qcat" onclick="filterCat('kids')"><div class="qcat-icon">🧒</div><div class="qcat-label">Kids</div></div>
+      <div class="qcat" onclick="filterCat('teen')"><div class="qcat-icon">🧑</div><div class="qcat-label">Teens</div></div>
+      <div class="qcat" onclick="filterCat('electronics')"><div class="qcat-icon">📱</div><div class="qcat-label">Phones</div></div>
+      <div class="qcat" onclick="filterCat('laptops')"><div class="qcat-icon">💻</div><div class="qcat-label">Laptops</div></div>
+      <div class="qcat" onclick="filterCat('gadgets')"><div class="qcat-icon">⌚</div><div class="qcat-label">Gadgets</div></div>
+      <div class="qcat" onclick="filterCat('audio')"><div class="qcat-icon">🎧</div><div class="qcat-label">Audio</div></div>
+      <div class="qcat" onclick="filterCat('beauty')"><div class="qcat-icon">💄</div><div class="qcat-label">Beauty</div></div>
+      <div class="qcat" onclick="filterCat('skincare')"><div class="qcat-icon">🧴</div><div class="qcat-label">Skincare</div></div>
+      <div class="qcat" onclick="filterCat('sports')"><div class="qcat-icon">⚽</div><div class="qcat-label">Sports</div></div>
+      <div class="qcat" onclick="filterCat('home')"><div class="qcat-icon">🏠</div><div class="qcat-label">Home</div></div>
+      <div class="qcat" onclick="filterCat('sale')"><div class="qcat-icon">🔥</div><div class="qcat-label">Sale</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- Season Banners -->
+<div class="season-strip">
+  <div class="season-card" onclick="filterCat('summer')">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80" alt="Summer"/>
+    <div class="season-overlay"></div>
+    <div class="season-label"><div class="season-title">Summer</div><div class="season-sub">Hot Deals Now</div></div>
+  </div>
+  <div class="season-card" onclick="filterCat('winter')">
+    <img src="https://images.unsplash.com/photo-1491002052546-bf38f186af56?w=600&q=80" alt="Winter"/>
+    <div class="season-overlay"></div>
+    <div class="season-label"><div class="season-title">Winter</div><div class="season-sub">Stay Warm</div></div>
+  </div>
+  <div class="season-card" onclick="filterCat('eid')">
+    <img src="https://images.unsplash.com/photo-1532375810709-75b1da00537c?w=600&q=80" alt="Eid"/>
+    <div class="season-overlay"></div>
+    <div class="season-label"><div class="season-title">Eid Special</div><div class="season-sub">Festive Collection</div></div>
+  </div>
+  <div class="season-card" onclick="filterCat('wedding')">
+    <img src="https://images.unsplash.com/photo-1519741347686-c1e0aadf4611?w=600&q=80" alt="Wedding"/>
+    <div class="season-overlay"></div>
+    <div class="season-label"><div class="season-title">Wedding</div><div class="season-sub">Bridal & Formal</div></div>
+  </div>
+</div>
+
+<!-- Products Section -->
+<section class="section" id="products" style="background:var(--ink);">
+  <div class="container">
+    <div class="sec-head">
+      <div>
+        <div class="sec-eyebrow" id="products-eyebrow">All Products</div>
+        <h2 class="sec-title" id="products-title">Shop <em>Everything</em></h2>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <select id="sort-select" onchange="sortProducts()" style="background:var(--ink3);border:1px solid var(--border2);color:var(--cream);padding:8px 14px;border-radius:4px;font-size:13px;outline:none;cursor:pointer;">
+          <option value="default">Sort: Default</option>
+          <option value="price-low">Price: Low to High</option>
+          <option value="price-high">Price: High to Low</option>
+          <option value="new">Newest First</option>
+          <option value="discount">Biggest Discount</option>
+        </select>
+        <a href="https://wa.me/923374014086?text=Assalam%20o%20Alaikum!%20Full%20catalog%20dikhayein." target="_blank" class="view-all">View All ›</a>
+      </div>
+    </div>
+    <!-- Age Tabs -->
+    <div class="age-tabs" id="age-tabs">
+      <div class="age-tab active" onclick="filterAge('all')">All Ages</div>
+      <div class="age-tab" onclick="filterAge('baby')">Baby (0-2)</div>
+      <div class="age-tab" onclick="filterAge('kids')">Kids (3-12)</div>
+      <div class="age-tab" onclick="filterAge('teen')">Teens (13-19)</div>
+      <div class="age-tab" onclick="filterAge('young')">Young (20-35)</div>
+      <div class="age-tab" onclick="filterAge('adult')">Adults (36-55)</div>
+      <div class="age-tab" onclick="filterAge('senior')">Seniors (55+)</div>
+    </div>
+    <div class="prod-grid" id="products-grid"></div>
+    <div id="no-results" style="display:none;text-align:center;padding:60px 0;color:var(--fog);">
+      <div style="font-size:48px;margin-bottom:16px;">🔍</div>
+      <p style="font-size:16px;">No products found. Try a different search or category.</p>
+    </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a href="https://wa.me/923374014086?text=Assalam%20o%20Alaikum!%20Aur%20products%20dekhna%20chahta%20hoon." target="_blank" class="btn-primary">Load More Products on WhatsApp</a>
+    </div>
+  </div>
+</section>
+
+<!-- Promo Banners -->
+<section class="section" style="background:var(--ink2);padding:40px 0;">
+  <div class="container">
+    <div class="promo-grid">
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=700&q=80" alt="Beauty"/>
+        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <div class="promo-label">New Arrivals</div>
+          <div class="promo-title">Beauty &<br>Skincare</div>
+          <div class="promo-btn" onclick="filterCat('beauty')">Shop Now ›</div>
+        </div>
+      </div>
+      <div class="promo-card">
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=700&q=80" alt="Footwear"/>
+        <div class="promo-overlay"></div>
+        <div class="promo-content">
+          <div class="promo-label">Hot Deals</div>
+          <div class="promo-title">Footwear<br>Up to 40% Off</div>
+          <div class="promo-btn" onclick="filterCat('footwear')">Shop Now ›</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section style="padding:40px 0;background:var(--ink3);">
+  <div class="container">
+    <div class="features-row">
+      <div class="feat-box"><div class="feat-icon">🚚</div><div class="feat-title">Free Delivery</div><div class="feat-desc">Orders above Rs. 2,500 anywhere in Pakistan</div></div>
+      <div class="feat-box"><div class="feat-icon">🔄</div><div class="feat-title">Easy Returns</div><div class="feat-desc">7-day hassle-free return policy</div></div>
+      <div class="feat-box"><div class="feat-icon">✅</div><div class="feat-title">100% Authentic</div><div class="feat-desc">All products verified and quality checked</div></div>
+      <div class="feat-box"><div class="feat-icon">💬</div><div class="feat-title">WhatsApp Support</div><div class="feat-desc">Instant help Mon-Sat, 9am to 8pm</div></div>
+      <div class="feat-box"><div class="feat-icon">💳</div><div class="feat-title">Secure Payment</div><div class="feat-desc">COD, EasyPaisa, JazzCash accepted</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="section" style="background:var(--ink2);">
+  <div class="container">
+    <div class="sec-head" style="flex-direction:column;align-items:flex-start;gap:8px;">
+      <div class="sec-eyebrow">Customer Reviews</div>
+      <h2 class="sec-title">What Our <em>Customers</em> Say</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Got my daughter's baby clothes and they are sooo cute and soft! Fast delivery to Lahore. Will order again!"</p><div class="testi-name">Sadia Hussain</div><div class="testi-loc">Lahore</div><div class="testi-product">Baby Collection</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Ordered a laptop bag and smartwatch together. Both arrived in 2 days. Excellent quality for the price."</p><div class="testi-name">Ahmed Raza</div><div class="testi-loc">Karachi</div><div class="testi-product">Electronics & Gadgets</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"The skincare set is amazing — my skin feels so much better. Genuine products, not fake. Highly recommended!"</p><div class="testi-name">Maryam Khan</div><div class="testi-loc">Islamabad</div><div class="testi-product">Beauty & Skincare</div></div>
+      <div class="testi-card"><div class="testi-stars">★★★★★</div><p class="testi-text">"Bought Eid dresses for the whole family. Everyone loved their outfits. Amazing service, will always shop here."</p><div class="testi-name">Tariq Mehmood</div><div class="testi-loc">Narowal</div><div class="testi-product">Eid Collection</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- Newsletter -->
+<div class="nl-section" id="contact">
+  <div class="container">
+    <div class="sec-eyebrow">Stay Updated</div>
+    <h2 class="nl-title">Get <em>Exclusive Deals</em></h2>
+    <p class="nl-p">Join 10,000+ shoppers. Be first for new arrivals, flash sales and promo codes.</p>
+    <div class="nl-form">
+      <input type="email" class="nl-inp" placeholder="Enter your email address"/>
+      <button class="nl-sub" onclick="nlSubscribe(this)">Subscribe</button>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="f-logo">Fahad<span>Store</span></div>
+        <p class="f-desc">Pakistan's trusted shopping destination. Fashion, Electronics, Beauty, Sports & more — for every age, every season.</p>
+        <div class="f-socials">
+          <a href="https://wa.me/923374014086" target="_blank" class="f-soc"><svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.837L.057 23.571a.75.75 0 0 0 .921.921l5.734-1.471A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.95-1.355l-.355-.211-3.674.942.962-3.564-.232-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+          <a href="#" class="f-soc"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="f-col-title">Shop</div>
+        <ul class="f-links">
+          <li><a href="#" onclick="filterCat('women')">Women's Fashion</a></li>
+          <li><a href="#" onclick="filterCat('men')">Men's Fashion</a></li>
+          <li><a href="#" onclick="filterCat('kids')">Kids & Baby</a></li>
+          <li><a href="#" onclick="filterCat('electronics')">Electronics</a></li>
+          <li><a href="#" onclick="filterCat('gadgets')">Gadgets</a></li>
+          <li><a href="#" onclick="filterCat('sale')">Sale Items 🔥</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Categories</div>
+        <ul class="f-links">
+          <li><a href="#" onclick="filterCat('beauty')">Beauty & Skincare</a></li>
+          <li><a href="#" onclick="filterCat('sports')">Sports & Fitness</a></li>
+          <li><a href="#" onclick="filterCat('home')">Home & Kitchen</a></li>
+          <li><a href="#" onclick="filterCat('footwear')">Footwear</a></li>
+          <li><a href="#" onclick="filterCat('perfume')">Perfumes</a></li>
+          <li><a href="#" onclick="filterCat('eid')">Eid Collection</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Support</div>
+        <ul class="f-links">
+          <li><a href="#">Track Order</a></li>
+          <li><a href="#">Returns Policy</a></li>
+          <li><a href="#">Size Guide</a></li>
+          <li><a href="#">Shipping Info</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="f-col-title">Contact</div>
+        <ul class="f-links">
+          <li><a href="https://wa.me/923374014086">WhatsApp: 0337-4014086</a></li>
+          <li><a href="mailto:fahadstore@gmail.com">fahadstore@gmail.com</a></li>
+          <li><a href="#">Narowal, Punjab</a></li>
+          <li><a href="#">Mon-Sat: 9am-8pm</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="f-copy">&copy; 2025 <span>Fahad Store</span>. All rights reserved. Pakistan's Trusted Store.</p>
+      <div class="f-pays">
+        <span class="f-pay">COD</span><span class="f-pay">EasyPaisa</span><span class="f-pay">JazzCash</span><span class="f-pay">Bank Transfer</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- Cart -->
+<div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+<div class="cart-panel" id="cart-panel">
+  <div class="cart-hd">
+    <div class="cart-hd-title">Your Cart</div>
+    <button class="cart-cls" onclick="toggleCart()">&#10005;</button>
+  </div>
+  <div class="cart-body" id="cart-body">
+    <div class="cart-empty"><svg viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg><p style="font-size:14px;">Cart is empty.<br>Start shopping!</p></div>
+  </div>
+  <div class="cart-ft" id="cart-ft" style="display:none;">
+    <div class="cart-totals">
+      <div class="cart-row"><span>Subtotal</span><span id="cart-sub">Rs. 0</span></div>
+      <div class="cart-row"><span>Delivery</span><span style="color:var(--green);">FREE</span></div>
+      <div class="cart-row total"><span>Total</span><span id="cart-total">Rs. 0</span></div>
+    </div>
+    <button class="btn-wa-out" onclick="waCheckout()">
+      <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.837L.057 23.571a.75.75 0 0 0 .921.921l5.734-1.471A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.95-1.355l-.355-.211-3.674.942.962-3.564-.232-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+      Order via WhatsApp
+    </button>
+    <button class="btn-continue" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+
+<script>
+const WA='923374014086';
+
+// ===== PRODUCTS DATA =====
+const PRODUCTS=[
+// WOMEN'S
+{id:1,name:'Silk Evening Gown',cat:['women','fashion','young','adult','sale','eid','wedding'],brand:'Premium',price:5500,old:8000,img:'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:2,name:'Embroidered Lawn Suit',cat:['women','fashion','young','adult','summer','eid'],brand:'Gul Ahmed',price:4800,old:null,img:'https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?w=400&q=80',badge:'new',age:'adult',delivery:'Free Delivery'},
+{id:3,name:'Chiffon Kurti Set',cat:['women','fashion','teen','young','summer','sale'],brand:'Khaadi',price:3200,old:4000,img:'https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&q=80',badge:'sale',age:'teen',delivery:'Free Delivery'},
+{id:4,name:'Bridal Lehenga',cat:['women','fashion','young','adult','wedding','eid'],brand:'Sana Safinaz',price:18000,old:25000,img:'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&q=80',badge:'hot',age:'young',delivery:'Free Delivery'},
+{id:5,name:'Casual Summer Dress',cat:['women','fashion','teen','young','summer'],brand:'Zara',price:2800,old:null,img:'https://images.unsplash.com/photo-1612336307429-8a898d10e223?w=400&q=80',badge:'new',age:'teen',delivery:'Free Delivery'},
+{id:6,name:'Winter Shawl Suit',cat:['women','fashion','adult','senior','winter'],brand:'Gul Ahmed',price:5200,old:6500,img:'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+// MEN'S
+{id:7,name:'Classic Linen Shirt',cat:['men','fashion','young','adult','summer'],brand:'Outfitters',price:2200,old:null,img:'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+{id:8,name:'Formal Blazer',cat:['men','fashion','young','adult','wedding','eid'],brand:'Chen One',price:7800,old:10000,img:'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+{id:9,name:'Denim Jacket',cat:['men','fashion','teen','young','winter'],brand:"Levi's",price:4200,old:5500,img:'https://images.unsplash.com/photo-1576871337622-98d48d1cf531?w=400&q=80',badge:'hot',age:'teen',delivery:'Free Delivery'},
+{id:10,name:'Slim Fit Chinos',cat:['men','fashion','young','adult'],brand:'Outfitters',price:3100,old:null,img:'https://images.unsplash.com/photo-1473966968600-fa801b869a1a?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+{id:11,name:'Shalwar Kameez Set',cat:['men','fashion','adult','senior','eid'],brand:'Junaid Jamshed',price:4500,old:5500,img:'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+{id:12,name:'Winter Jacket',cat:['men','fashion','adult','senior','winter'],brand:'Bonanza',price:6800,old:8500,img:'https://images.unsplash.com/photo-1520975954732-35dd22299614?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+// BABY
+{id:13,name:'Baby Onesie Set (5pcs)',cat:['baby','fashion','kids','sale'],brand:'BabyZone',price:1800,old:2500,img:'https://images.unsplash.com/photo-1555252333-9f8e92e65df9?w=400&q=80',badge:'sale',age:'baby',delivery:'Free Delivery'},
+{id:14,name:'Newborn Gift Box',cat:['baby','fashion','kids'],brand:'Tiny Tots',price:3200,old:null,img:'https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?w=400&q=80',badge:'new',age:'baby',delivery:'Free Delivery'},
+{id:15,name:'Baby Winter Suit',cat:['baby','fashion','kids','winter'],brand:'BabyZone',price:2400,old:3000,img:'https://images.unsplash.com/photo-1519689680058-324335c77eba?w=400&q=80',badge:'hot',age:'baby',delivery:'Free Delivery'},
+// KIDS
+{id:16,name:"Girl's Party Dress",cat:['kids','fashion','sale','eid','wedding'],brand:'Bonpoint',price:2800,old:3500,img:'https://images.unsplash.com/photo-1476234251651-f353703a034d?w=400&q=80',badge:'sale',age:'kids',delivery:'Free Delivery'},
+{id:17,name:"Boy's Shalwar Kameez",cat:['kids','fashion','eid'],brand:'Junaid Jamshed',price:2200,old:null,img:'https://images.unsplash.com/photo-1503944583220-79d8926ad5e2?w=400&q=80',badge:'new',age:'kids',delivery:'Free Delivery'},
+{id:18,name:"Kids Sports Shoes",cat:['kids','footwear','sports'],brand:'Nike',price:3500,old:4500,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',badge:'sale',age:'kids',delivery:'Free Delivery'},
+// TEEN
+{id:19,name:'Teen Hoodie',cat:['teen','fashion','winter','sale'],brand:'H&M',price:2500,old:3200,img:'https://images.unsplash.com/photo-1556821840-3a63f15732ce?w=400&q=80',badge:'hot',age:'teen',delivery:'Free Delivery'},
+{id:20,name:'Sneakers Pro Max',cat:['teen','footwear','sports','summer'],brand:'Nike',price:6200,old:null,img:'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=400&q=80',badge:'new',age:'teen',delivery:'Free Delivery'},
+// ELECTRONICS
+{id:21,name:'Samsung Galaxy A55',cat:['electronics','phones','gadgets','young','adult'],brand:'Samsung',price:72000,old:82000,img:'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&q=80',badge:'hot',age:'young',delivery:'Free Delivery'},
+{id:22,name:'iPhone 15 Cover Pack',cat:['electronics','accessories-e','teen','young'],brand:'Apple',price:1800,old:2400,img:'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&q=80',badge:'sale',age:'teen',delivery:'Free Delivery'},
+{id:23,name:'Laptop Backpack',cat:['electronics','accessories-e','gadgets','teen','young'],brand:'Targus',price:4500,old:6000,img:'https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?w=400&q=80',badge:'sale',age:'teen',delivery:'Free Delivery'},
+{id:24,name:'Wireless Earbuds Pro',cat:['electronics','audio','gadgets','teen','young'],brand:'JBL',price:8500,old:11000,img:'https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&q=80',badge:'hot',age:'young',delivery:'Free Delivery'},
+{id:25,name:'Smart Watch Series 8',cat:['electronics','gadgets','smartwatch','young','adult'],brand:'Amazfit',price:14500,old:18000,img:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:26,name:'Bluetooth Speaker',cat:['electronics','audio','gadgets','teen','young'],brand:'JBL',price:6800,old:9000,img:'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:27,name:'Power Bank 20000mAh',cat:['electronics','gadgets','accessories-e'],brand:'Anker',price:3200,old:4500,img:'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+{id:28,name:'Gaming Mouse',cat:['electronics','gadgets','laptops','teen'],brand:'Logitech',price:4800,old:6500,img:'https://images.unsplash.com/photo-1527814050087-3793815479db?w=400&q=80',badge:'hot',age:'teen',delivery:'Free Delivery'},
+// BEAUTY
+{id:29,name:'Vitamin C Serum',cat:['beauty','skincare','young','adult'],brand:'The Ordinary',price:2800,old:3500,img:'https://images.unsplash.com/photo-1556228578-8c89e6adf883?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+{id:30,name:'Luxury Perfume Set',cat:['beauty','perfume','young','adult','eid','sale'],brand:'Lattafa',price:4500,old:6000,img:'https://images.unsplash.com/photo-1541643600914-78b084683702?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+{id:31,name:'Hair Care Bundle',cat:['beauty','haircare','teen','young','adult'],brand:'OGX',price:3200,old:4200,img:'https://images.unsplash.com/photo-1522338242992-e1a54906a8da?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:32,name:'Makeup Palette Set',cat:['beauty','makeup','teen','young'],brand:'Huda Beauty',price:5500,old:7000,img:'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80',badge:'hot',age:'teen',delivery:'Free Delivery'},
+{id:33,name:'Anti-Aging Cream',cat:['beauty','skincare','adult','senior'],brand:'Olay',price:3800,old:4800,img:'https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?w=400&q=80',badge:'sale',age:'senior',delivery:'Free Delivery'},
+// SPORTS
+{id:34,name:'Yoga Mat Premium',cat:['sports','young','adult'],brand:'Lululemon',price:3500,old:4500,img:'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+{id:35,name:'Cricket Bat',cat:['sports','kids','teen','young'],brand:'DSC',price:4800,old:6500,img:'https://images.unsplash.com/photo-1540747913346-19212a4328f8?w=400&q=80',badge:'sale',age:'kids',delivery:'Free Delivery'},
+{id:36,name:'Running Shoes',cat:['sports','footwear','teen','young','adult'],brand:'Adidas',price:7800,old:10000,img:'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:37,name:'Gym Gloves',cat:['sports','young','adult'],brand:'Harbinger',price:1800,old:2400,img:'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&q=80',badge:'new',age:'young',delivery:'Free Delivery'},
+// HOME
+{id:38,name:'Aesthetic Wall Clock',cat:['home','adult','senior'],brand:'HomeDecor',price:2200,old:3000,img:'https://images.unsplash.com/photo-1563861826100-9cb868fdbe1c?w=400&q=80',badge:'new',age:'adult',delivery:'Free Delivery'},
+{id:39,name:'Kitchen Knife Set',cat:['home','adult','senior'],brand:'Victorinox',price:4500,old:6000,img:'https://images.unsplash.com/photo-1593618998160-e34014e67546?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+{id:40,name:'Bed Sheet Set',cat:['home','adult','senior','sale'],brand:'GulAhmed Home',price:3800,old:5200,img:'https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=400&q=80',badge:'sale',age:'adult',delivery:'Free Delivery'},
+// FOOTWEAR
+{id:41,name:'Leather Tote Bag',cat:['women','bags','young','adult','sale'],brand:'Coach',price:8500,old:12000,img:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+{id:42,name:'Oxford Brogues',cat:['footwear','men','young','adult'],brand:'Clarks',price:8800,old:null,img:'https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&q=80',badge:'new',age:'adult',delivery:'Free Delivery'},
+{id:43,name:'Ladies Heels',cat:['footwear','women','young','adult','wedding'],brand:'Nine West',price:5500,old:7000,img:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&q=80',badge:'sale',age:'young',delivery:'Free Delivery'},
+];
+
+let cart=[];
+let activeFilter='all';
+let activeAge='all';
+let currentSort='default';
+let currentSlide=0;
+
+// ===== HERO SLIDER =====
+function slideHero(dir){
+  currentSlide=(currentSlide+dir+3)%3;
+  goSlide(currentSlide);
+}
+function goSlide(n){
+  currentSlide=n;
+  document.getElementById('hero-slides').style.transform=`translateX(-${n*33.333}%)`;
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+}
+setInterval(()=>slideHero(1),5000);
+
+// ===== FILTER =====
+function filterCat(cat){
+  activeFilter=cat;
+  activeAge='all';
+  document.querySelectorAll('.age-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelector('.age-tab').classList.add('active');
+  const titles={
+    all:'Shop Everything',women:"Women's Fashion",men:"Men's Fashion",
+    kids:'Kids Collection',baby:'Baby Collection',teen:'Teen Fashion',
+    electronics:'Electronics',phones:'Mobile Phones',laptops:'Laptops & PCs',
+    'accessories-e':'Phone Accessories',audio:'Audio & Headphones',
+    gadgets:'Gadgets & Tech',smartwatch:'Smart Watches',
+    beauty:'Beauty & Care',skincare:'Skincare',haircare:'Hair Care',
+    perfume:'Perfumes',makeup:'Makeup',
+    sports:'Sports & Fitness',home:'Home & Kitchen',
+    footwear:'Footwear',bags:'Bags & Purses',
+    sale:'Sale Items',summer:'Summer Collection',winter:'Winter Collection',
+    eid:'Eid Collection',wedding:'Wedding Collection',fashion:'All Fashion'
+  };
+  document.getElementById('products-eyebrow').textContent=titles[cat]||'Products';
+  document.getElementById('products-title').innerHTML=`${titles[cat]||'All Products'} <em>Collection</em>`;
+  renderProducts();
+  document.getElementById('products').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function filterAge(age){
+  activeAge=age;
+  document.querySelectorAll('.age-tab').forEach(t=>t.classList.remove('active'));
+  event.target.classList.add('active');
+  renderProducts();
+}
+
+function sortProducts(){
+  currentSort=document.getElementById('sort-select').value;
+  renderProducts();
+}
+
+function doSearch(){
+  const q=document.getElementById('search-input').value.toLowerCase().trim();
+  if(!q) return;
+  activeFilter='search:'+q;
+  document.getElementById('products-eyebrow').textContent='Search Results';
+  document.getElementById('products-title').innerHTML=`Results for <em>"${q}"</em>`;
+  renderProducts(q);
+  document.getElementById('products').scrollIntoView({behavior:'smooth'});
+}
+
+function doMobSearch(){
+  const q=document.getElementById('mob-search-inp').value;
+  document.getElementById('search-input').value=q;
+  toggleMobile();
+  doSearch();
+}
+
+function getFilteredProducts(searchQ){
+  let list=[...PRODUCTS];
+  if(searchQ){
+    list=list.filter(p=>p.name.toLowerCase().includes(searchQ)||p.brand.toLowerCase().includes(searchQ));
+  } else if(activeFilter!=='all'){
+    list=list.filter(p=>p.cat.includes(activeFilter));
+  }
+  if(activeAge&&activeAge!=='all'){
+    list=list.filter(p=>p.cat.includes(activeAge));
+  }
+  if(currentSort==='price-low') list.sort((a,b)=>a.price-b.price);
+  else if(currentSort==='price-high') list.sort((a,b)=>b.price-a.price);
+  else if(currentSort==='discount') list.sort((a,b)=>{
+    const da=a.old?Math.round((a.old-a.price)/a.old*100):0;
+    const db=b.old?Math.round((b.old-b.price)/b.old*100):0;
+    return db-da;
+  });
+  return list;
+}
+
+function renderProducts(searchQ){
+  const list=getFilteredProducts(searchQ);
+  const grid=document.getElementById('products-grid');
+  const noRes=document.getElementById('no-results');
+  if(!list.length){grid.innerHTML='';noRes.style.display='block';return;}
+  noRes.style.display='none';
+  grid.innerHTML=list.map(p=>{
+    const disc=p.old?Math.round((p.old-p.price)/p.old*100):0;
+    const badge={new:'b-new',sale:'b-sale',hot:'b-hot',limited:'b-limited',season:'b-season'}[p.badge]||'b-new';
+    const bLabel={new:'New',sale:'Sale',hot:'Hot',limited:'Limited',season:'Season'}[p.badge]||'New';
+    return`<div class="prod-card">
+      <div class="prod-img">
+        <img src="${p.img}" alt="${p.name}" loading="lazy"/>
+        <span class="prod-badge ${badge}">${bLabel}</span>
+        <button class="prod-wish" onclick="toggleWish(this)" title="Wishlist">&#9825;</button>
+        <div class="prod-quick">
+          <button class="btn-addcart" onclick="addToCart(${p.id})">Add to Cart</button>
+          <button class="btn-wa-p" onclick="waOrder(${p.id})" title="WhatsApp Order">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.558 4.114 1.528 5.837L.057 23.571a.75.75 0 0 0 .921.921l5.734-1.471A11.945 11.945 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.695 9.695 0 0 1-4.95-1.355l-.355-.211-3.674.942.962-3.564-.232-.368A9.699 9.699 0 0 1 2.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+          </button>
+        </div>
+      </div>
+      <div class="prod-info">
+        <div class="prod-brand">${p.brand}</div>
+        <div class="prod-name">${p.name}</div>
+        <div class="prod-prices">
+          <span class="prod-price">Rs. ${p.price.toLocaleString()}</span>
+          ${p.old?`<span class="prod-old">Rs. ${p.old.toLocaleString()}</span><span class="prod-disc">-${disc}%</span>`:''}
+        </div>
+        <div class="prod-rating">
+          ${'<svg viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>'.repeat(5)}
+          <span>(${Math.floor(Math.random()*200+50)})</span>
+        </div>
+        <div class="prod-delivery">${p.delivery}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleWish(btn){
+  btn.style.color=btn.style.color==='rgb(231, 76, 60)'?'':'rgb(231, 76, 60)';
+  btn.innerHTML=btn.innerHTML==='&#9825;'?'&#9829;':'&#9825;';
+}
+
+function waOrder(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  const msg=`Assalam o Alaikum! 🛍️\n\nYe product order karna chahta/chahti hoon:\n\n*${p.name}*\nBrand: ${p.brand}\nPrice: Rs. ${p.price.toLocaleString()}\n\nPlease confirm. Shukriya!`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+
+// ===== CART =====
+function addToCart(id){
+  const p=PRODUCTS.find(x=>x.id===id);
+  const ex=cart.find(i=>i.id===id);
+  if(ex) ex.qty++; else cart.push({...p,qty:1});
+  updateCart();
+  toggleCart();
+}
+function removeFromCart(id){cart=cart.filter(i=>i.id!==id);updateCart();}
+function updateCart(){
+  const count=cart.reduce((s,i)=>s+i.qty,0);
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cart-count').textContent=count;
+  document.getElementById('cart-sub').textContent='Rs. '+total.toLocaleString();
+  document.getElementById('cart-total').textContent='Rs. '+total.toLocaleString();
+  const body=document.getElementById('cart-body');
+  const ft=document.getElementById('cart-ft');
+  if(!cart.length){
+    body.innerHTML=`<div class="cart-empty"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path stroke-linecap="round" stroke-linejoin="round" d="M15.75 10.5V6a3.75 3.75 0 1 0-7.5 0v4.5m11.356-1.993 1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 0 1-1.12-1.243l1.264-12A1.125 1.125 0 0 1 5.513 7.5h12.974c.576 0 1.059.435 1.119 1.007Z"/></svg><p style="font-size:14px;">Cart is empty.<br>Start shopping!</p></div>`;
+    ft.style.display='none';
+  } else {
+    body.innerHTML=cart.map(i=>`
+      <div class="cart-item">
+        <div class="ci-img"><img src="${i.img}" alt="${i.name}" loading="lazy"/></div>
+        <div class="ci-info">
+          <div class="ci-name">${i.name}</div>
+          <div class="ci-price">Rs. ${(i.price*i.qty).toLocaleString()}</div>
+          <div class="ci-qty">Qty: ${i.qty} &nbsp;|&nbsp; ${i.brand}</div>
+        </div>
+        <button class="ci-rm" onclick="removeFromCart(${i.id})">&#10005;</button>
+      </div>`).join('');
+    ft.style.display='block';
+  }
+}
+function waCheckout(){
+  const total=cart.reduce((s,i)=>s+i.price*i.qty,0);
+  const items=cart.map(i=>`- ${i.name} (${i.brand}) x${i.qty} = Rs. ${(i.price*i.qty).toLocaleString()}`).join('\n');
+  const msg=`Assalam o Alaikum! 🛍️ *FahadStore Order*\n\n${items}\n\n*Total: Rs. ${total.toLocaleString()}*\nPayment: COD\n\nPlease confirm. Shukriya!`;
+  window.open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`,'_blank');
+}
+function toggleCart(){
+  document.getElementById('cart-overlay').classList.toggle('open');
+  document.getElementById('cart-panel').classList.toggle('open');
+}
+function toggleMobile(){document.getElementById('mobile-menu').classList.toggle('open');}
+
+// Enter key search
+document.getElementById('search-input').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+
+// Newsletter
+function nlSubscribe(btn){
+  const inp=btn.previousElementSibling;
+  if(!inp.value.includes('@')){inp.style.borderColor='var(--red)';return;}
+  btn.textContent='Subscribed!';btn.style.background='var(--green)';
+  inp.value='';inp.style.borderColor='';
+}
+
+// Countdown
+(function(){
+  let h=11,m=59,s=59;
+  setInterval(()=>{
+    if(s===0){if(m===0){if(h===0){h=11;m=59;s=59;return;}h--;m=59;s=59;}else{m--;s=59;}}else s--;
+    document.getElementById('cd-h').textContent=String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(s).padStart(2,'0');
+  },1000);
+})();
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)';}});},{threshold:0.08});
+setTimeout(()=>{document.querySelectorAll('.prod-card,.testi-card,.feat-box').forEach(el=>{el.style.opacity='0';el.style.transform='translateY(20px)';el.style.transition='opacity .45s ease,transform .45s ease';obs.observe(el);});},100);
+
+// Mobile hamburger show/hide
+function checkMobile(){
+  const ham=document.querySelector('.hamburger-nav');
+  if(window.innerWidth<=640) ham.style.display='flex'; else ham.style.display='none';
+}
+checkMobile();
+window.addEventListener('resize',checkMobile);
+
+renderProducts();
+</script>
+</body>
+</html>
